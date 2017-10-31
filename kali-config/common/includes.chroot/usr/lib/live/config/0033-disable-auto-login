@@ -1,0 +1,3 @@
+#!/bin/sh
+
+chmod -x /lib/live/config/0080-gdm3

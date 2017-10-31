@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# To run Tor-browser it is required to have non-privileged user
+# home directory is required to enable graphical login
+useradd -m -N -s /bin/bash -G games,users user
+
+wget https://www.torproject.org/dist/torbrowser/
+v=0
+for l in $(awk -F '[<>]' '{ gsub("/", ""); print $5} ' "index.html" | awk '/./' | awk '!/a/' | awk '/[0-9]/') ; do if [ "$v" < "$l" ] ; then v=$l; fi; done
+echo $v
+rm index.html
+
+wget https://www.torproject.org/dist/torbrowser/${v}/tor-browser-linux64-${v}_en-US.tar.xz
+tar xf tor-browser-linux64-${v}_en-US.tar.xz -C /home/user/
+rm tor-browser-linux64-${v}_en-US.tar.xz
+
+# Disable automatic login of root user
+#sed -i 's/AutomaticLogin/#AutomaticLogin/g' /etc/gdm3/daemon.conf
+#sed -i 's/TimedLogin/#TimedLogin/g' /etc/gdm3/daemon.conf
+

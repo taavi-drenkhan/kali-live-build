@@ -21,3 +21,23 @@ kali-linux-full
 
 # Graphical desktop
 kali-desktop-gnome
+
+# TOR network support
+tor
+
+# linux headers
+linux-headers-amd64
+
+# tools
+bless
+mtr-tiny
+lynx
+
+# VPN related packages
+network-manager-openvpn-gnome
+# Point-to-point tunneling
+network-manager-pptp
+network-manager-pptp-gnome
+network-manager-strongswan
+network-manager-vpnc
+network-manager-vpnc-gnome
